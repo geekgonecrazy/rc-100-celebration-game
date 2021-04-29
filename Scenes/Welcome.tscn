@@ -17,7 +17,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Logo" type="TextureRect" parent="."]
 margin_left = 158.165
 margin_top = 57.082
 margin_right = 670.165
@@ -34,6 +34,18 @@ margin_top = 432.432
 margin_right = 416.919
 margin_bottom = 477.432
 text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 3.07843
+margin_top = 705.46
+margin_right = 263.078
+margin_bottom = 793.46
+text = "Created with Love by:
+@aaron.ogle
+@tiago.evangelista"
 __meta__ = {
 "_edit_use_anchors_": false
 }
