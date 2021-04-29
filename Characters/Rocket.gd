@@ -22,8 +22,6 @@ func _physics_process(_delta):
 	else:
 		velocity.x = lerp(velocity.x, 0, 0.2)
 
-	position.x = clamp(position.x, 30, play_area_size.x - 30)
-
 	move_and_slide(velocity)
 	
 	if Input.is_action_just_pressed("shot"):

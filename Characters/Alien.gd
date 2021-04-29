@@ -6,6 +6,8 @@ signal score
 
 var Bullet = preload("res://Characters/Alien_Bullet.tscn")
 
+onready var play_area_size = get_viewport().get_visible_rect().size
+
 var speed = 50
 var velocity = Vector2()
 	
@@ -21,7 +23,11 @@ func _physics_process(delta):
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		velocity = velocity.bounce(collision.normal).rotated(rand_range(-PI/4, PI/4))
-	rotation = velocity.angle()
+	
+	# clean up.. but would be cool to have come down and reverse direction
+	if position.x > play_area_size.x:
+		print('despawning')
+		queue_free()
 
 func die():
 	print("hit!")
