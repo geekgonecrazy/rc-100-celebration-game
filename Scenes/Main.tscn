@@ -1,14 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Characters/Rocket.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Images/background.png" type="Texture" id=2]
 [ext_resource path="res://Images/ammo_hud.png" type="Texture" id=3]
 [ext_resource path="res://Images/score_hud.png" type="Texture" id=4]
 [ext_resource path="res://Fonts/Binary_dynamicfont.tres" type="DynamicFont" id=5]
-[ext_resource path="res://Images/health_hud.png" type="Texture" id=6]
-[ext_resource path="res://Characters/Alien.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Components/Health_Hud.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sounds/point.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Scenes/Main.gd" type="Script" id=8]
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 8 )
 
 [node name="Scene Background" type="TextureRect" parent="."]
 margin_left = -90.5098
@@ -32,42 +34,41 @@ __meta__ = {
 }
 
 [node name="Score Hud" type="TextureRect" parent="."]
-margin_left = 877.528
-margin_top = 9.86079
-margin_right = 1278.53
-margin_bottom = 169.861
+margin_left = 575.528
+margin_top = 11.8608
+margin_right = 976.53
+margin_bottom = 171.861
 rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Health Hud" parent="." instance=ExtResource( 6 )]
+
+[node name="Rocket" parent="." groups=[
+"player",
+] instance=ExtResource( 1 )]
+position = Vector2( 409.768, 720.542 )
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="PointSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
 [node name="Score" type="RichTextLabel" parent="."]
-margin_left = 948.807
-margin_top = 14.7089
-margin_right = 1012.81
-margin_bottom = 44.7089
+margin_left = 646.807
+margin_top = 16.7089
+margin_right = 710.81
+margin_bottom = 46.7089
 rect_scale = Vector2( 2, 2 )
 custom_fonts/normal_font = ExtResource( 5 )
-text = "100"
+text = "0"
 fit_content_height = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Health Hud" type="TextureRect" parent="."]
-margin_left = 1026.81
-margin_top = 451.709
-margin_right = 1120.81
-margin_bottom = 978.709
-rect_scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Rocket" parent="." instance=ExtResource( 1 )]
-position = Vector2( 555.432, 656.902 )
-
-[node name="Alien" parent="." instance=ExtResource( 7 )]
-position = Vector2( 63, 42 )
+[connection signal="health_change" from="Rocket" to="Health Hud" method="_on_Rocket_health_change"]
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
