@@ -18,10 +18,10 @@ __meta__ = {
 }
 
 [node name="Logo" type="TextureRect" parent="."]
-margin_left = 158.165
-margin_top = 57.082
-margin_right = 670.165
-margin_bottom = 569.082
+margin_left = 211.559
+margin_top = 93.1227
+margin_right = 723.559
+margin_bottom = 605.123
 rect_scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 1 )
 __meta__ = {
@@ -29,10 +29,10 @@ __meta__ = {
 }
 
 [node name="Start" type="Button" parent="."]
-margin_left = 235.919
-margin_top = 432.432
-margin_right = 416.919
-margin_bottom = 477.432
+margin_left = 290.647
+margin_top = 493.835
+margin_right = 471.647
+margin_bottom = 538.835
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
