@@ -27,6 +27,8 @@ func _on_SpawnTimer_timeout():
 func spawn_alien():
     var b = Alien.instance()
 
+    b.speed = rand_range(50, 200)
+    $SpawnTimer.wait_time = rand_range(1, 3)
     b.position = spawnpoint
     b.connect("score", self, "increment_score")
     

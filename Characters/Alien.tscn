@@ -7,19 +7,20 @@
 radius = 45.0836
 
 [node name="Alien" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 4
 script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
 
 [node name="FireTimer" type="Timer" parent="."]
 
 [node name="Muzzle" type="Position2D" parent="."]
 position = Vector2( 0.33371, 27.0305 )
 rotation = 1.5708
-
 [connection signal="timeout" from="FireTimer" to="." method="_on_FireTimer_timeout"]
