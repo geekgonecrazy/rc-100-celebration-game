@@ -1,6 +1,10 @@
 extends KinematicBody2D
 
+signal health_change(change)
+
 var Bullet = preload("res://Characters/Bullet.tscn")
+
+var health = 100
 
 var speed = 400
 var velocity = Vector2.ZERO
@@ -29,3 +33,13 @@ func shoot():
 	var b = Bullet.instance()
 	owner.add_child(b)
 	b.transform = $Muzzle.global_transform
+	
+func hit():
+	print('ouch')
+	
+	health = health - 10
+	emit_signal("health_change", health)
+	
+	if health <= 0:
+		print('dead!')
+		queue_free()

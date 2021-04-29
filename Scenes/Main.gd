@@ -31,7 +31,3 @@ func spawn_alien():
 	b.connect("score", self, "increment_score")
 	
 	add_child(b)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

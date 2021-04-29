@@ -4,14 +4,17 @@ class_name Mob
 signal removed
 signal score
 
+var Bullet = preload("res://Characters/Alien_Bullet.tscn")
+
 var speed = 50
 var velocity = Vector2()
 
 var minimap_icon = "mob"
 	
-	
 func _ready():
 	add_to_group("alien")
+	
+	$FireTimer.start()
 	#rotation = rand_range(0, 2*PI)
 	
 	
@@ -24,5 +27,18 @@ func _physics_process(delta):
 
 func die():
 	print("hit!")
+	
+	$FireTimer.stop()
+	
 	emit_signal("score")
 	queue_free()
+
+
+func _on_FireTimer_timeout():
+	fire()
+	
+func fire():
+	print('firing')
+	var b = Bullet.instance()
+	get_tree().get_root().add_child(b)
+	b.transform = $Muzzle.global_transform
