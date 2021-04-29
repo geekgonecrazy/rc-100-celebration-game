@@ -1,6 +1,10 @@
 extends Node2D
 
-signal death
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = "text"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,6 +16,5 @@ func _ready():
 #	pass
 
 
-func _on_Rocket_health_change(health):
-	print('health changed', health)
-	$HealthBar.value = health
+func _on_Replay_pressed():
+	get_tree().change_scene("res://Scenes/Main.tscn")
