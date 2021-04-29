@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sounds/win.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Images/score_hud.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/Binary_dynamicfont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scenes/Win.gd" type="Script" id=4]
+
+[node name="Win" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+autoplay = true
+
+[node name="Rocketeers" type="TextureRect" parent="."]
+margin_left = 193.0
+margin_top = 257.0
+margin_right = 600.0
+margin_bottom = 430.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="100" type="RichTextLabel" parent="."]
+margin_left = 336.546
+margin_top = 260.436
+margin_right = 376.546
+margin_bottom = 300.436
+rect_scale = Vector2( 4, 5 )
+custom_fonts/normal_font = ExtResource( 3 )
+text = "100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Replay" type="Button" parent="."]
+margin_left = 331.051
+margin_top = 442.959
+margin_right = 451.051
+margin_bottom = 462.959
+text = "Do it again?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Replay" to="." method="_on_Replay_pressed"]

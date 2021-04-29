@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="RocketChat-100-Celebration-Game"
-run/main_scene="res://Scenes/Main.tscn"
+run/main_scene="res://Scenes/Welcome.tscn"
 config/icon="res://Images/icon.png"
 
 [display]
