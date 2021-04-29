@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/rocketchat.png-caf4518d39ce0aefaf591375df6e8262.stex"
+path="res://.import/icon.png-5c54608cdf98940b04ad240121483c81.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://rocketchat.png"
-dest_files=[ "res://.import/rocketchat.png-caf4518d39ce0aefaf591375df6e8262.stex" ]
+source_file="res://Images/icon.png"
+dest_files=[ "res://.import/icon.png-5c54608cdf98940b04ad240121483c81.stex" ]
 
 [params]
 
