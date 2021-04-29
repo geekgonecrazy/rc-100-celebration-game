@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Images/health_hud.png" type="Texture" id=1]
+[ext_resource path="res://Images/health_hud_full.png" type="Texture" id=2]
+[ext_resource path="res://Components/Health_Hud.gd" type="Script" id=3]
+
+[node name="Health Hud" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = 745.25
+margin_top = 449.859
+margin_right = 844.25
+margin_bottom = 976.859
+rect_scale = Vector2( 0.5, 0.5 )
+step = 10.0
+value = 100.0
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 2 )
+fill_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
