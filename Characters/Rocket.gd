@@ -21,6 +21,8 @@ func _physics_process(_delta):
 		velocity.x = -speed
 	else:
 		velocity.x = lerp(velocity.x, 0, 0.2)
+		
+	position.x = clamp(position.x, 30, play_area_size.x - 30)
 
 	move_and_slide(velocity)
 	
