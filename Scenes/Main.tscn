@@ -34,34 +34,21 @@ __meta__ = {
 }
 
 [node name="Score Hud" type="TextureRect" parent="."]
-margin_left = 877.528
-margin_top = 9.86079
-margin_right = 1278.53
-margin_bottom = 169.861
+margin_left = 575.528
+margin_top = 11.8608
+margin_right = 976.53
+margin_bottom = 171.861
 rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Score" type="RichTextLabel" parent="."]
-margin_left = 948.807
-margin_top = 14.7089
-margin_right = 1012.81
-margin_bottom = 44.7089
-rect_scale = Vector2( 2, 2 )
-custom_fonts/normal_font = ExtResource( 5 )
-text = "0"
-fit_content_height = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Health Hud" type="TextureRect" parent="."]
-margin_left = 1026.81
-margin_top = 433.709
-margin_right = 1120.81
-margin_bottom = 960.709
+margin_left = 745.81
+margin_top = 431.709
+margin_right = 839.81
+margin_bottom = 958.709
 rect_scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 __meta__ = {
@@ -76,5 +63,18 @@ wait_time = 5.0
 
 [node name="PointSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+
+[node name="Score" type="RichTextLabel" parent="."]
+margin_left = 646.807
+margin_top = 16.7089
+margin_right = 710.81
+margin_bottom = 46.7089
+rect_scale = Vector2( 2, 2 )
+custom_fonts/normal_font = ExtResource( 5 )
+text = "0"
+fit_content_height = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
