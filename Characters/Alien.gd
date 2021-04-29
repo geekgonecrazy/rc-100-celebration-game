@@ -10,35 +10,35 @@ var speed = 50
 var velocity = Vector2()
 
 var minimap_icon = "mob"
-	
+    
 func _ready():
-	add_to_group("alien")
-	
-	$FireTimer.start()
-	#rotation = rand_range(0, 2*PI)
-	
-	
+    add_to_group("alien")
+    
+    $FireTimer.start()
+    #rotation = rand_range(0, 2*PI)
+    
+    
 func _physics_process(delta):
-	velocity = transform.x * speed
-	var collision = move_and_collide(velocity * delta)
-	if collision:
-		velocity = velocity.bounce(collision.normal).rotated(rand_range(-PI/4, PI/4))
-	rotation = velocity.angle()
+    velocity = transform.x * speed
+    var collision = move_and_collide(velocity * delta)
+    if collision:
+        velocity = velocity.bounce(collision.normal).rotated(rand_range(-PI/4, PI/4))
+    rotation = velocity.angle()
 
 func die():
-	print("hit!")
-	
-	$FireTimer.stop()
-	
-	emit_signal("score")
-	queue_free()
+    print("hit!")
+    
+    $FireTimer.stop()
+    
+    emit_signal("score")
+    queue_free()
 
 
 func _on_FireTimer_timeout():
-	fire()
-	
+    fire()
+    
 func fire():
-	print('firing')
-	var b = Bullet.instance()
-	get_tree().get_root().add_child(b)
-	b.transform = $Muzzle.global_transform
+    print('firing')
+    var b = Bullet.instance()
+    get_tree().get_root().add_child(b)
+    b.transform = $Muzzle.global_transform
