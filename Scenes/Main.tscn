@@ -69,7 +69,7 @@ __meta__ = {
 }
 
 [node name="Rocket" parent="." instance=ExtResource( 1 )]
-position = Vector2( 555.432, 656.902 )
+position = Vector2( 409.768, 720.542 )
 
 [node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
